@@ -25,6 +25,33 @@ class StringValidator
         }
         return $validationError;
     }
+    public static function min($field, $size = 6) {
+        $validationError = [];
+        if (is_array($field)) {
+            foreach ($field as $key => $value) {
+                if ($value == null) {
+                    $validationError[$key] = $key.' cannot be null';
+                } else if(strlen(strval($value)) < $size) {
+                    $validationError[$key] = $key.' cannot be less than '.$size.' character'.($size > 1 ? 's' : '');
+                }
+            }
+        }
+        return $validationError;
+    }
+
+    public static function max($field, $size = 32) {
+        $validationError = [];
+        if (is_array($field)) {
+            foreach ($field as $key => $value) {
+                if ($value == null) {
+                    $validationError[$key] = $key.' cannot be null';
+                } else if(strlen(strval($value)) > $size) {
+                    $validationError[$key] = $key.' cannot be greater than '.$size.' character'.($size > 1 ? 's' : '');
+                }
+            }
+        }
+        return $validationError;
+    }
 
     public static function email($field) {
         $validationError = [];

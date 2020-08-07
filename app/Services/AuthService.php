@@ -13,6 +13,7 @@ use App\CustomObjects\HttpStatus;
 use App\Exceptions\ApiException;
 use App\OauthClient;
 use App\User;
+use App\Utils\JwtTokenFilter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -22,6 +23,27 @@ class AuthService
 {
     private static $auth;
     private static $authUser;
+    private static $claims;
+    private static $token;
+
+    public static function validateJwt(Request $request) {
+        $header_str = $request->header("Authorization", '');
+        if (!Str::contains($header_str, "Bearer")) {
+            return false;
+        } else {
+            $token = trim(str_replace('Bearer', '', $header_str));
+            $isRefresh = JwtTokenFilter::checkIfRefresh($token);
+            if ($isRefresh) return false;
+            $valid = JwtTokenFilter::checkValidity($token);
+            if ($valid) self::$claims = JwtTokenFilter::getClaims($token);
+            return $valid;
+        }
+    }
+
+    public static function getClaims() {
+        return self::$claims;
+    }
+
     public static function check(Request $request) {
         $header_str = $request->header("X-Api-Auth", '');
         // get the header string expect a string formatted as Basic clientId:clientSecret
@@ -73,4 +95,6 @@ class AuthService
     public static function authUserGet() {
         return self::$authUser;
     }
+
+
 }

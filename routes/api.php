@@ -19,8 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/test', function () {
     $a = [1, 2, 3, 4, 5];
-    return sizeof($a);
-});
+    $id = "pefcom-location002";
+    $secret = "12345678";
+    $result = \App\Utils\Base64::encode($id.":".$secret);
+    $auth = \App\Services\AuthService::getClaims();
+    dd($result, $auth);
+})->middleware('client.auth')->middleware('has_role');
 //  public client routes
 
 Route::prefix('public/client')->group(function () {
@@ -44,7 +48,7 @@ Route::prefix('protected/client')->middleware('client.auth')->group(function () 
     Route::get('/details', [
         'uses' => 'OAuthClientController@getClientDetails',
         'as' => 'client.details'
-        ]);
+    ]);
     Route::post('web_server_redirect_uri', [
         'uses' => 'OAuthClientController@setWebServerRedirectUri',
         'as' => 'client.redirect_uri'
@@ -67,7 +71,7 @@ Route::prefix('protected/client')->middleware('client.auth')->group(function () 
     ]);
 });
 
-Route::prefix('protected/user')->middleware('client.auth')->group(function () {
+Route::prefix('public/user')->middleware('client.auth')->group(function () {
 
     Route::post('register', [
         'uses' => 'UserController@register',
@@ -87,5 +91,20 @@ Route::prefix('protected/token')->middleware('client.auth')->group(function () {
         'uses' => 'JwtController@generate',
         'as' => 'jwt.generate'
     ]);
+
+    Route::post('/refresh', [
+        'uses' => 'JwtController@refresh',
+        'as' => 'jwt.refresh'
+    ]);
+
+});
+
+Route::prefix('protected/user')->middleware('client.auth')->group(function () {
+
+    Route::get('/details', [
+        'uses' => 'UserController@getDetails',
+        'as' => 'user.details'
+    ])->middleware('has_role:USER');
+
 
 });

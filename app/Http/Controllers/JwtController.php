@@ -28,4 +28,11 @@ class JwtController extends Controller
             $request->getRequestUri()
         );
     }
+
+    public function refresh(Request $request) {
+        return $this->jwtService->refresh(
+            $request->input('refreshToken'),
+            $request->getRequestUri()
+        );
+    }
 }

@@ -55,4 +55,9 @@ class UserService
         $u = User::where("email", $email)->get()->first();
         return $u == null;
     }
+
+    public static function getCurrentAuthUser() {
+        $claims = AuthService::getClaims();
+        return User::find($claims["userId"]);
+    }
 }

@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3d0a4bf-550a-428f-b11a-b12910d10491" name="Default" comment="Create Role model and migration. Closes #7">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Middleware/AuthenticateUserWithJwt.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Middleware/HasRole.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Utils/JwtTokenFilter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Utils/RandomIds.php" />
+    <list default="true" id="f3d0a4bf-550a-428f-b11a-b12910d10491" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/CustomValidators/StringValidator.php" afterPath="$PROJECT_DIR$/app/CustomValidators/StringValidator.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/JwtController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/JwtController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Kernel.php" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/AuthService.php" afterPath="$PROJECT_DIR$/app/Services/AuthService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/JwtService.php" afterPath="$PROJECT_DIR$/app/Services/JwtService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Services/UserService.php" afterPath="$PROJECT_DIR$/app/Services/UserService.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.php" afterPath="$PROJECT_DIR$/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -372,7 +360,7 @@
       <workItem from="1582662394001" duration="596000" />
       <workItem from="1583441468841" duration="764000" />
       <workItem from="1583481161367" duration="2456000" />
-      <workItem from="1596790980990" duration="1310000" />
+      <workItem from="1596790980990" duration="1648000" />
     </task>
     <task id="LOCAL-00001" summary="update readme">
       <created>1582290085110</created>
@@ -521,19 +509,25 @@
       <option name="project" value="LOCAL" />
       <updated>1582574406010</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Authenticated Client can Refresh Token. Closes #10">
+      <created>1596792319926</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1596792319926</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71512000" />
+    <option name="totallyTimeSpent" value="71850000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -591,7 +585,8 @@
     <MESSAGE value="Create Jwt Util class. Closes #5" />
     <MESSAGE value="Generate a test token. Closes #6" />
     <MESSAGE value="Create Role model and migration. Closes #7" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Role model and migration. Closes #7" />
+    <MESSAGE value="Authenticated Client can Refresh Token. Closes #10" />
+    <option name="LAST_COMMIT_MESSAGE" value="Authenticated Client can Refresh Token. Closes #10" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
